@@ -1,9 +1,9 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
-from .models import AccountUser, QuestionnaireQuestion, QuestionnaireUseranswer
+from .models import AccountUser, QuestionnaireQuestion, QuestionnaireUseranswer, PathUserpathfeedback
 from django.db import connection
-from .serializers import AccountUserSerializer, QuestionnaireQuestionSerializer, QuestionnaireUseranswerSerializer
+from .serializers import AccountUserSerializer, QuestionnaireQuestionSerializer, QuestionnaireUseranswerSerializer, PathUserpathfeedbackSerializer
 from django.db.models import Q
 
 # http://127.0.0.1:8000/user_list/72/
@@ -33,3 +33,13 @@ def questionnaire_user_answers(request, question_id, user_id):
     )
     serializer = QuestionnaireUseranswerSerializer(user_answers, many=True)
     return Response(serializer.data)
+
+# http://127.0.0.1:8000/path_feedback/123/
+@api_view(['GET'])
+def path_user_pathfeedback(request, path):
+    pathfeedback = PathUserpathfeedback.objects.filter(
+        Q(path_id=path)
+    )
+    serializer = PathUserpathfeedbackSerializer(pathfeedback, many=True)
+    return Response(serializer.data)
+

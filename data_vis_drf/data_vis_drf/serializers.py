@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import AccountUser, QuestionnaireQuestion, QuestionnaireUseranswer
+from .models import AccountUser, QuestionnaireQuestion, QuestionnaireUseranswer, PathUserpathfeedback
 
 class AccountUserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -15,3 +15,8 @@ class QuestionnaireUseranswerSerializer(serializers.ModelSerializer):
     class Meta:
         model = QuestionnaireUseranswer
         fields = ['text_answer', 'slider_answer', 'numeric_answer', 'timestamp', 'choice_answer', 'question', 'user', 'reactions_ms', 'question_group']
+
+class PathUserpathfeedbackSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PathUserpathfeedback
+        fields = ['id', 'rating', 'path_id', 'user_id', 'timestamp']
