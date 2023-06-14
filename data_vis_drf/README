@@ -1,3 +1,6 @@
+Original project backend link: https://github.com/davidayu/TreesDataVisBackend/tree/main/data_vis_drf
+Original project frontend link: https://github.com/davidayu/TreesDataVisFrontend/tree/main/data_vis_react 
+
 This Django DRF project contains APIs used to obtain information needed to visualize
 
 Filtered average score: Trees.app collects student data by asking them questions and giving students recommendations based on the answers to their questions. The students complete the recommendations and then answer the same questions afterwards. We want to visualize how students’ answers change after completing their recommended tasks and view the data in a line graph.
